@@ -199,12 +199,14 @@ section {
 
 /* Variables CSS */
 
-#nosotros-content {
-    padding-top: 100px;
+/* === Sección de Servicios (estructura general) === */
+/* Sección Servicios */
+#servicios-content {
+    padding-top: 100px; /* Ya lo tenías, ajustado a 100px */
     background-color: var(--white-bg);
+    color: var(--text-dark);
 }
 
-/* Título principal de sección (centrado y estilo uniforme) */
 .section-title {
     font-family: 'Playfair Display', serif;
     font-size: 2.5rem;
@@ -213,6 +215,207 @@ section {
     text-align: center;
     margin-bottom: 1.5rem;
 }
+
+/* === Tarjeta horizontal de servicio === */
+.service-horizontal-card {
+    display: flex;
+    flex-direction: row; /* Por defecto en escritorio */
+    background-color: var(--white-bg);
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    height: 150px; /* ¡Altura fija para las tarjetas horizontales: 150px! */
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-horizontal-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(217, 64, 139, 0.15);
+}
+
+.service-horizontal-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0; /* Bootstrap ya maneja los bordes redondeados en la tarjeta padre */
+}
+
+/* Contenedor de la imagen (col-md-5) */
+.service-horizontal-card .col-md-5 {
+    height: 100%; /* Asegura que la imagen ocupe toda la altura de la tarjeta */
+    overflow: hidden;
+}
+
+/* Contenedor del texto (col-md-7) */
+.service-horizontal-card .col-md-7 {
+    display: flex; /* Convierte el contenedor en un flex container */
+    flex-direction: column; /* Apila los elementos hijos (h3 y p) verticalmente */
+    justify-content: center; /* ¡Esta es la clave! Centra el bloque de texto verticalmente */
+    align-items: flex-start; /* Alinea los hijos a la izquierda horizontalmente */
+    height: 50%; /* ¡IMPORTANTE: Debe ser 100% para que justify-content funcione correctamente! */
+    padding: 1rem 1.5rem; /* Ajustado el padding para que quepa bien el texto en 150px de altura */
+}
+
+
+/* Título dentro de cada tarjeta */
+.service-horizontal-card .value-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem; /* Reducido un poco para 150px de altura */
+    color: var(--primary-pink);
+    margin-bottom: 0.5rem; /* Margen inferior ajustado */
+    text-align: left; /* Alinea el título a la izquierda */
+}
+
+/* Párrafo dentro de cada tarjeta */
+.service-horizontal-card .value-desc {
+    font-size: 0.85rem; /* Reducido para 150px de altura */
+    color: var(--text-dark);
+    text-align: left; /* Alinea la descripción a la izquierda */
+    line-height: 1.4; /* Espaciado de línea más compacto */
+    margin-bottom: 0;
+    /* max-width: 90%; REMOVED - Esto puede causar problemas de justificación con 'left' */
+}
+
+/* Responsivo para las tarjetas de servicio */
+@media (max-width: 767.98px) {
+    .service-horizontal-card {
+        flex-direction: column; /* Apila imagen y texto en móviles */
+        height: auto; /* Altura automática en móviles */
+    }
+
+    .service-horizontal-card img {
+        border-radius: 12px 12px 0 0; /* Arriba redondeado, abajo recto */
+        height: 120px; /* Altura de la imagen reducida para móviles */
+    }
+
+    .service-horizontal-card .col-md-5,
+    .service-horizontal-card .col-md-7 {
+        width: 100%;
+        height: auto;
+        padding: 0.8rem 1rem; /* Menos padding en móviles */
+        align-items: flex-start; /* Mantener alineación a la izquierda en móvil */
+    }
+
+    .service-horizontal-card .value-title {
+        font-size: 1.1rem; /* Ajuste para móviles */
+        text-align: left;
+    }
+
+    .service-horizontal-card .value-desc {
+        font-size: 0.8rem; /* Ajuste para móviles */
+        text-align: left;
+    }
+}
+
+/* Responsive para pantallas extra-pequeñas si es necesario */
+@media (max-width: 575.98px) {
+    .service-horizontal-card .value-title {
+        font-size: 1rem;
+    }
+    .service-horizontal-card .value-desc {
+        font-size: 0.75rem;
+    }
+}
+
+/* --- Nuevos estilos para las Categorías Principales (Tarjetas con enlace) --- */
+#categorias-principales {
+    background-color: var(--white-bg);
+    border-radius: var(--border-radius);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    padding: 2.5rem;
+    margin-bottom: 3rem;
+}
+
+.category-card-link {
+    text-decoration: none; /* Quita el subrayado del enlace */
+    display: block; /* Para que la tarjeta sea clickeable por completo */
+}
+
+.category-card {
+    background-color: var(--white-bg);
+    border: 1px solid var(--border-grey);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    height: 100%; /* Para que las tarjetas tengan la misma altura */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.category-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(217, 64, 139, 0.3);
+    border-color: var(--primary-pink);
+}
+
+.category-icon {
+    font-size: 3.5rem;
+    color: var(--primary-pink);
+    margin-bottom: 1rem;
+    transition: color 0.3s ease;
+}
+
+.category-card:hover .category-icon {
+    color: var(--primary-pink); /* Asegura que el ícono siga siendo rosa al hover */
+}
+
+.category-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 0.8rem;
+}
+
+.category-card:hover .category-title {
+    color: var(--text-dark); /* Asegura que el título siga siendo oscuro al hover */
+}
+
+.category-description {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.5;
+    text-align: center;
+}
+
+/* Responsive para las nuevas secciones */
+@media (max-width: 991.98px) {
+    .service-list-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+    .service-item-detail {
+        font-size: 1rem;
+        padding: 0.8rem 1rem;
+    }
+    .category-title {
+        font-size: 1.4rem;
+    }
+    .category-description {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .service-list-grid {
+        grid-template-columns: 1fr; /* Una columna en móviles */
+    }
+    .service-item-detail {
+        justify-content: center; /* Centra el texto en móviles */
+    }
+    .category-card {
+        padding: 1.5rem;
+    }
+    .category-icon {
+        font-size: 3rem;
+    }
+    .category-title {
+        font-size: 1.2rem;
+    }
+}
+
 
 /* Eslogan */
 .slogan-about {
@@ -233,6 +436,15 @@ section {
     font-size: 1rem;
     color: var(--text-dark);
     text-align: justify;
+    line-height: 1.6;
+}
+
+.intro-text2 {
+    max-width: 900px;
+    margin: 0 auto 3rem;
+    font-size: 1rem;
+    color: var(--text-dark);
+    text-align: center !important;
     line-height: 1.6;
 }
 
@@ -402,7 +614,7 @@ section {
 }
 
 .history-logo-section .combined-logo-img {
-    max-width: 400px;
+    max-width: 350px;
     height: auto;
     display: block;
     margin: 0 auto 0rem auto;
@@ -476,25 +688,6 @@ section {
 }
 
 
-/* === MAPA === */
-.map-responsive {
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-    padding-top: 56.25%; /* 16:9 Aspect Ratio */
-    margin-bottom: 3rem;
-}
-
-.map-responsive iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    border: 0;
-    border-radius: 12px;
-}
-
 /* === UBICACIÓN === */
 #ubicacion {
     background-color: var(--white-bg);
@@ -506,23 +699,6 @@ section {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
 }
 
-/* === FOOTER === */
-footer {
-    background-color: #343a40;
-    color: white;
-    text-align: center;
-    padding: 1rem 0;
-    margin-top: var(--section-margin-bottom);
-}
-
-footer a {
-    color: white;
-    text-decoration: none;
-}
-
-footer a:hover {
-    text-decoration: underline;
-}
 
 /* === RESPONSIVE === */
 @media (max-width: 1199.98px) {
@@ -628,98 +804,147 @@ footer a:hover {
     }
 }
 
-/* Sección Servicios */
-#servicios-content {
-    padding-top: 150px;
+/* Nuevo estilo para el título de descripción de servicios */
+.section-title2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem; /* Tamaño un poco más pequeño que section-title */
+    font-weight: 700; /* Negrita */
+    color: var(--primary-pink); /* Color rosa */
+    margin-bottom: 2rem;
+}
+
+/* Sección de Descripción y Atributos */
+.service-description-section {
     background-color: var(--white-bg);
+    border-radius: var(--border-radius);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    padding: 2.5rem; /* Ajuste el padding para un mejor look */
+    margin-bottom: 3rem; /* Espacio debajo de la sección */
+}
+
+.description-text {
+    font-size: 1.1rem;
+    line-height: 1.6;
     color: var(--text-dark);
+    text-align: justify;
+    margin-bottom: 2rem;
 }
 
-.section-title {
+.attributes-title {
     font-family: 'Playfair Display', serif;
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: var(--primary-pink);
-}
-
-
-
-.custom-btn-link:hover {
-    background-color: var(--primary-pink);
-    color: #fff;
-    border-color: var(--primary-pink);
-    transform: scale(1.05);
-    box-shadow: 0 4px 12px rgba(217, 64, 139, 0.4);
-}
-
-/* Tarjetas de servicio */
-.service-card {
-    border: none;
-    border-radius: 12px;
-    overflow: hidden;
-    background-color: var(--white-bg);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-}
-
-.service-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 30px rgba(217, 64, 139, 0.3);
-}
-
-.service-card img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-}
-
-.service-content {
-    padding: 1.5rem 1.5rem 2rem;
-    flex-grow: 1;
+    font-size: 1.8rem;
+    font-weight: 700;
     color: var(--text-dark);
-}
-
-.service-content h5 {
-    font-family: 'Playfair Display', serif;
-    font-weight: 700;
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-}
-
-.service-content p {
-    font-size: 1rem;
-    color: #555;
-    line-height: 1.4;
-}
-
-/* Ajustes de texto para encabezado y lead */
-.section-title {
-    font-family: 'Playfair Display', serif;
-    font-weight: 700;
-    font-size: 3rem;
     margin-bottom: 1.5rem;
-    color: var(--text-dark);
 }
 
-.lead {
-    font-size: 1.125rem;
-    color: var(--text-dark);
+.attributes-list {
+    list-style: none; /* Quitar el bullet por defecto */
+    padding-left: 0;
 }
 
-/* Responsive: centra contenido en pantallas pequeñas */
-@media (max-width: 767.98px) {
-    #servicios-content .row.mb-5 {
-        text-align: center;
+.attributes-list li {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--text-dark);
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: flex-start;
+}
+
+.attributes-list li i {
+    font-size: 1.2rem;
+    margin-right: 10px;
+    margin-top: 4px; /* Para alinear el ícono con el texto */
+    color: var(--primary-pink); /* Color del ícono */
+}
+
+/* Mosaico de Imágenes */
+.image-mosaic-section {
+    background-color: var(--white-bg);
+    border-radius: var(--border-radius);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    padding: 2.5rem;
+    margin-top: var(--section-margin-bottom); /* Espacio superior */
+    margin-bottom: 3rem;
+}
+
+.image-mosaic-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Columnas responsivas */
+    grid-auto-rows: minmax(150px, auto); /* Altura mínima de fila */
+    gap: 15px; /* Espacio entre imágenes */
+}
+
+.mosaic-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Recorta la imagen para que llene el contenedor */
+    border-radius: 8px; /* Bordes redondeados para las imágenes */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: block; /* Elimina espacio extra debajo de la imagen */
+}
+
+.mosaic-item:hover img {
+    transform: scale(1.02); /* Pequeño zoom al pasar el mouse */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Para la imagen grande */
+.mosaic-item-lg {
+    grid-column: span 2; /* Ocupa 2 columnas */
+    grid-row: span 2;    /* Ocupa 2 filas (si el diseño lo permite) */
+    min-height: 400px; /* Asegura un tamaño mínimo para la imagen grande */
+}
+
+/* Responsive para el mosaico */
+@media (min-width: 992px) { /* En pantallas grandes (desktop) */
+    .image-mosaic-grid {
+        grid-template-columns: repeat(4, 1fr); /* 4 columnas para un diseño más denso */
+        grid-auto-rows: 200px; /* Altura de fila fija para un mejor grid */
     }
-    #servicios-content .col-lg-5,
-    #servicios-content .col-lg-7 {
-        margin-bottom: 2rem;
+    .mosaic-item-lg {
+        grid-column: span 2; /* 2 columnas */
+        grid-row: span 2;    /* 2 filas */
+    }
+     /* Ajustes específicos para los items para que el mosaico se vea bien */
+    .image-mosaic-grid > div:nth-child(2) { grid-column: span 1; grid-row: span 1; }
+    .image-mosaic-grid > div:nth-child(3) { grid-column: span 1; grid-row: span 1; }
+    .image-mosaic-grid > div:nth-child(4) { grid-column: span 1; grid-row: span 1; }
+    .image-mosaic-grid > div:nth-child(5) { grid-column: span 1; grid-row: span 1; }
+    .image-mosaic-grid > div:nth-child(6) { grid-column: span 1; grid-row: span 1; }
+    .image-mosaic-grid > div:nth-child(7) { grid-column: span 1; grid-row: span 1; } /* Añadido para img6.jpg */
+}
+
+@media (max-width: 768px) { /* Tablets y móviles */
+    .image-mosaic-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Más flexible */
+        grid-auto-rows: auto; /* Altura automática */
+    }
+    .mosaic-item-lg {
+        grid-column: span 1; /* En móviles, la imagen grande ocupa solo 1 columna */
+        grid-row: span 1;
+        min-height: 250px;
+    }
+    .section-title2 {
+        font-size: 1.7rem;
+    }
+    .description-text,
+    .attributes-list li {
+        font-size: 0.95rem;
+    }
+    .attributes-title {
+        font-size: 1.5rem;
     }
 }
+
+@media (max-width: 576px) { /* Móviles muy pequeños */
+    .image-mosaic-grid {
+        grid-template-columns: 1fr; /* Una columna por imagen */
+    }
+}
+
+
 
 
 #clientes-content {

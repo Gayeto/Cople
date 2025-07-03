@@ -392,11 +392,6 @@ section {
     flex-grow: 1;
 }
 
-/* --- SECCIÓN COMBINADA DE HISTORIA Y LOGOTIPO --- */
-.history-logo-section {
-    /* Los estilos generales de section ya le dan padding, margin-bottom, border-radius y box-shadow */
-}
-
 .history-logo-section .history-text {
     max-width: 900px;
     margin: 0 auto 1rem auto;

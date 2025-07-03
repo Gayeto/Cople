@@ -198,6 +198,13 @@ section {
     color: var(--text-dark);
 }
 
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--primary-pink);
+}
+
 .about-logo {
     max-width: 100%;
     max-height: 400px;
@@ -381,10 +388,9 @@ section {
 
 .testimonial-name {
     font-family: 'Playfair Display', serif;
-    font-size: 1.4rem;
-    color: var(--primary-pink);
+    font-weight: 700;
+    font-size: 1.5rem;
     margin-bottom: 0.5rem;
-    font-weight: bold;
 }
 
 .testimonial-text {

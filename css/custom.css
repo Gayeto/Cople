@@ -1,0 +1,606 @@
+/* Colores clave */
+:root {
+    --primary-pink: #d9408b; /* El fucsia/rosa de tu diseño */
+    --text-dark: #333333; /* Un negro/gris oscuro para títulos y texto */
+    --light-grey-bg: #f8f9fa; /* Fondo ligeramente gris para secciones */
+    --white-bg: #ffffff;
+    --border-grey: #e0e0e0; /* Gris para bordes de formularios y FAQ */
+    --button-grey: #b0b0b0; /* Gris para botones de 'VER PRODUCTOS' */
+}
+
+/* Tipografía global */
+body {
+    font-family: 'Montserrat', sans-serif; /* Para texto general y menú */
+    color: var(--text-dark);
+    background-color: var(--light-grey-bg); /* Fondo general del body */
+}
+
+/* Títulos principales (H1, H2, H3) - Usa Playfair Display para un toque elegante */
+.hero-title,
+.section-title,
+.section-title2,
+.quote-title,
+.service-content h5,
+.testimonial-name {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700; /* Negrita */
+    color: var(--text-dark);
+}
+
+/* Estilos de títulos específicos */
+.hero-title {
+    font-size: 4rem; /* Ajusta según sea necesario */
+    line-height: 1.1;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.section-title {
+    font-size: 3rem; /* Tamaño de los títulos de sección como "Sobre nosotros", "Servicios" */
+    margin-bottom: 2rem;
+    position: relative; /* Para posibles decoraciones de underline */
+    display: inline-block; /* Para centrar la línea si se añade */
+}
+
+.quote-title {
+    font-size: 3.2rem;
+    color: var(--primary-pink); /* El título de cotización es rosa */
+}
+
+.quote-subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--text-dark);
+    line-height: 1.5;
+}
+
+
+/* Navbar global */
+.navbar {
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente por defecto (para index) */
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Sombra sutil para la navbar */
+}
+
+.navbar.scrolled {
+    background-color: rgba(0, 0, 0, 0.9); /* Más opaco al hacer scroll o en otras páginas */
+}
+
+.navbar-brand {
+    font-weight: 700;
+    color: #fff !important; /* Asegura que el logo sea blanco */
+    /* font-family: 'Montserrat', sans-serif; Si quieres una fuente específica para el logo */
+}
+
+.navbar-nav .nav-link {
+    color: #fff !important; /* Enlaces blancos */
+    margin-right: 1.5rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+    color: var(--primary-pink) !important; /* Color de acento al hover/activo */
+}
+
+/* Hero Section (Solo para index.html) */
+.hero-section {
+    position: relative;
+    padding-top: 150px;
+    padding-bottom: 150px;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    overflow: hidden;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.hero-section::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Overlay para contraste */
+    z-index: 1;
+}
+
+.hero-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+.custom-btn-cotizar {
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid #fff;
+    color: #fff;
+    font-weight: 700;
+    padding: 12px 30px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.custom-btn-cotizar:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+    color: #fff;
+    border-color: #fff;
+}
+
+.hero-section .hero-title,
+.hero-section .hero-subtitle {
+    color: #fff !important;
+}
+
+
+
+/* WhatsApp Float Button */
+.whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1050; /* Por encima de todo */
+    background-color: #25D366; /* Color oficial de WhatsApp */
+    padding: 10px 15px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: #fff;
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.05);
+}
+
+.whatsapp-float img {
+    width: 30px; /* Ajusta el tamaño del icono */
+    height: 30px;
+}
+
+.whatsapp-float span {
+    font-size: 1.1rem;
+    margin-left: 8px;
+    color: #fff;
+}
+
+/* General Sections Padding */
+section {
+    padding: 80px 0; /* Espaciado uniforme para todas las secciones */
+}
+
+/* Sección Nosotros (nosotros.html) */
+#nosotros-content {
+    padding-top: 150px;
+    background-color: var(--white-bg);
+    color: var(--text-dark);
+}
+
+.about-logo {
+    max-width: 100%;
+    max-height: 400px;
+    object-fit: contain;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Botón elegante para sección nosotros */
+.custom-btn-link {
+    background-color: transparent;
+    border: 2px solid var(--primary-pink);
+    color: var(--primary-pink);
+    font-weight: 600;
+    padding: 12px 30px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.custom-btn-link:hover {
+    background-color: var(--primary-pink);
+    color: #fff;
+    border-color: var(--primary-pink);
+}
+
+.text-justificado {
+    text-align: justify;
+}
+
+.section-title2 {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    position: relative;
+    text-align: center;
+    display: block;
+}
+
+/* Sección Servicios */
+#servicios-content {
+    padding-top: 150px;
+    background-color: var(--white-bg);
+    color: var(--text-dark);
+}
+
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--primary-pink);
+}
+
+/* Botón con estilo uniforme */
+.custom-btn-link {
+    background-color: transparent;
+    border: 2px solid var(--primary-pink);
+    color: var(--primary-pink);
+    font-weight: 600;
+    padding: 12px 30px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.custom-btn-link:hover {
+    background-color: var(--primary-pink);
+    color: #fff;
+    border-color: var(--primary-pink);
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(217, 64, 139, 0.4);
+}
+
+/* Tarjetas de servicio */
+.service-card {
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: var(--white-bg);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(217, 64, 139, 0.3);
+}
+
+.service-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.service-content {
+    padding: 1.5rem 1.5rem 2rem;
+    flex-grow: 1;
+    color: var(--text-dark);
+}
+
+.service-content h5 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.service-content p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.4;
+}
+
+/* Ajustes de texto para encabezado y lead */
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-dark);
+}
+
+.lead {
+    font-size: 1.125rem;
+    color: var(--text-dark);
+}
+
+/* Responsive: centra contenido en pantallas pequeñas */
+@media (max-width: 767.98px) {
+    #servicios-content .row.mb-5 {
+        text-align: center;
+    }
+    #servicios-content .col-lg-5,
+    #servicios-content .col-lg-7 {
+        margin-bottom: 2rem;
+    }
+}
+
+
+#clientes-content {
+    padding-top: 150px;
+    background-color: var(--white-bg);
+}
+
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--primary-pink);
+}
+
+.testimonial-card {
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--white-bg);
+    border-radius: 12px;
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.06);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-6px);
+}
+
+.testimonial-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+.testimonial-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: var(--primary-pink);
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.testimonial-text {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.6;
+    flex-grow: 1;
+    font-style: italic;
+}
+
+/* Carrusel - flechas */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    filter: invert(0.5);
+    width: 2rem;
+    height: 2rem;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 5%;
+}
+
+
+
+#faq-content {
+    padding-top: 150px;
+    background-color: var(--white-bg);
+}
+
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--primary-pink);
+}
+
+.faq-item {
+    border: none;
+    border-bottom: 1px solid var(--border-grey);
+    margin-bottom: 0;
+    background-color: var(--white-bg);
+}
+
+.faq-button {
+    background-color: transparent !important;
+    color: var(--text-dark);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 1.05rem;
+    padding: 1rem 1.25rem;
+    transition: background-color 0.2s ease;
+    border-radius: 6px;
+}
+
+.faq-button:hover {
+    background-color: rgba(0, 0, 0, 0.03);
+}
+
+.faq-button:not(.collapsed) {
+    color: var(--primary-pink);
+    background-color: rgba(255, 192, 203, 0.08); /* Rosa pálido al expandirse */
+}
+
+.accordion-button::after {
+    filter: invert(0.5);
+}
+
+.accordion-button:not(.collapsed)::after {
+    transform: rotate(-180deg);
+}
+
+.faq-body {
+    padding: 1rem 1.25rem 1.5rem;
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+
+/* Quote Section (CAP4.jpg) */
+#cotiza-content {
+    padding-top: 150px; /* Ajuste para el contenido de la primera sección en otras páginas */
+}
+.contact-info p {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    color: #555;
+}
+.contact-info p strong {
+    color: var(--text-dark);
+    font-weight: 700;
+}
+
+.quote-form .quote-input {
+    border: none;
+    border-bottom: 1px solid var(--border-grey); /* Línea inferior como en la imagen */
+    border-radius: 0; /* Sin bordes redondeados */
+    padding: 12px 0; /* Más padding vertical */
+    box-shadow: none; /* Elimina sombra de focus */
+    font-size: 1.1rem;
+    background-color: transparent; /* Asegura que el fondo sea transparente */
+}
+
+.quote-form .quote-input::placeholder {
+    color: #a0a0a0; /* Color del placeholder */
+}
+
+.quote-form .quote-input:focus {
+    border-color: var(--primary-pink); /* Borde rosa al enfocar */
+    outline: 0;
+}
+
+.custom-btn-quote-now {
+    background-color: var(--primary-pink);
+    border-color: var(--primary-pink);
+    color: #fff;
+    font-weight: 700;
+    padding: 15px 30px;
+    border-radius: 8px; /* Ligeramente redondeado */
+    transition: background-color 0.3s ease;
+}
+
+.custom-btn-quote-now:hover {
+    background-color: darken(var(--primary-pink), 10%); /* Oscurece al hover */
+    border-color: darken(var(--primary-pink), 10%);
+    color: #fff;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center; /* Centra los iconos si la columna es estrecha */
+    gap: 20px; /* Espacio entre iconos */
+}
+
+.social-icons .social-icon {
+    font-size: 1.8rem;
+    color: var(--primary-pink); /* Iconos de redes sociales en rosa */
+    transition: color 0.3s ease;
+}
+
+.social-icons .social-icon:hover {
+    color: darken(var(--primary-pink), 15%);
+}
+
+/* Footer */
+footer {
+    background-color: var(--text-dark); /* Fondo oscuro */
+    color: #ccc;
+}
+
+footer a {
+    color: #fff;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: var(--primary-pink);
+}
+
+/* Media Queries para Responsividad */
+@media (max-width: 991.98px) { /* Tablet y móvil */
+    .hero-title {
+        font-size: 3rem;
+    }
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+    .section-title {
+        font-size: 2.2rem;
+        text-align: center; /* Centra títulos en móvil */
+    }
+    .lead, .custom-btn-products {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        display: block; /* Para centrar el botón */
+    }
+    .whatsapp-float span {
+        display: none; /* Oculta el texto "¡Hola!" en móviles pequeños */
+    }
+    .about-logo {
+        max-width: 180px;
+    }
+    .quote-title, .quote-subtitle, .contact-info, .social-icons {
+        text-align: center !important; /* Centra el texto y los iconos en móvil */
+    }
+    .social-icons {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 767.98px) { /* Móvil */
+    .hero-section {
+        padding-top: 100px;
+        padding-bottom: 100px;
+        min-height: 70vh;
+    }
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    .navbar-toggler {
+        margin-left: auto; /* Empuja el botón hamburguesa a la derecha */
+    }
+    .navbar-collapse {
+        text-align: center; /* Centra los elementos del menú en móvil */
+    }
+    .testimonial-card {
+        min-height: auto; /* Permite que la altura se ajuste en móvil */
+    }
+    .service-card img {
+        height: 180px; /* Ajuste para móviles */
+    }
+
+
+}

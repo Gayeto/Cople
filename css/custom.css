@@ -44,12 +44,68 @@ body {
     font-weight: 500;
 }
 
+.card-img-top {
+    height: 250px;
+    object-fit: cover;
+  }
+
+
 .section-title {
-    font-size: 3rem; /* Tamaño de los títulos de sección como "Sobre nosotros", "Servicios" */
-    margin-bottom: 2rem;
-    position: relative; /* Para posibles decoraciones de underline */
-    display: inline-block; /* Para centrar la línea si se añade */
-}
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 2rem;
+    color: var(--pink-brand); /* o color: #e83e8c; */
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .value-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: var(--pink-brand); /* o color: #e83e8c; */
+    margin-bottom: 0.5rem;
+    text-align: center;
+  }
+
+  /* Si quieres también hacer uniforme los párrafos dentro de tarjetas */
+  .value-desc {
+    font-size: 1rem;
+    color: #555;
+    text-align: center;
+  }
+
+  .btn-cotiza {
+    background-color: #e83e8c; /* o reemplaza con #f54291 si no usas variables */
+    color: white; /* <--- corregido aquí */
+    font-weight: 600;
+    padding: 0.75rem 2rem;
+    border: none;
+    border-radius: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 10px rgba(255, 105, 180, 0.3);
+  }
+
+  .btn-cotiza:hover {
+    background-color: #490126; /* morado oscuro al pasar el cursor */
+    color: white; /* <--- asegúrate que el texto sigue blanco */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(255, 105, 180, 0.5);
+    text-decoration: none;
+  }
+
+
+
+  /* Ajusta si hay conflicto con <h5> usados como título */
+  .service-card h5 {
+    font-size: 1.25rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: var(--pink-brand); /* o color: #e83e8c; */
+    text-align: center;
+  }
 
 .quote-title {
     font-size: 3.2rem;
@@ -207,14 +263,7 @@ section {
     color: var(--text-dark);
 }
 
-.section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: var(--primary-pink);
-    text-align: center;
-    margin-bottom: 1.5rem;
-}
+
 
 /* === Tarjeta horizontal de servicio === */
 .service-horizontal-card {
@@ -319,12 +368,14 @@ section {
 
 /* --- Nuevos estilos para las Categorías Principales (Tarjetas con enlace) --- */
 #categorias-principales {
+    padding-top: var(--section-padding-vertical);
+    padding-bottom: var(--section-padding-vertical);
+    margin-bottom: var(--section-margin-bottom);
     background-color: var(--white-bg);
     border-radius: var(--border-radius);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    padding: 2.5rem;
-    margin-bottom: 3rem;
 }
+
 
 .category-card-link {
     text-decoration: none; /* Quita el subrayado del enlace */
@@ -338,12 +389,13 @@ section {
     padding: 2rem;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
     transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-    height: 100%; /* Para que las tarjetas tengan la misma altura */
-    display: flex;
+    height: 100%;
+    display: flex; /* <== aquí estaba mal con 'lay' */
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
+
 
 .category-card:hover {
     transform: translateY(-8px);
@@ -381,6 +433,41 @@ section {
     text-align: center;
 }
 
+.service-card {
+    background-color: white;
+    border-radius: 1rem;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .service-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 24px rgba(217, 64, 139, 0.15);
+  }
+
+  .image-mosaic-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+  }
+
+  .mosaic-item img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .mosaic-item-lg {
+    grid-column: span 2;
+  }
+
+
+
+
+
+
 /* Responsive para las nuevas secciones */
 @media (max-width: 991.98px) {
     .service-list-grid {
@@ -415,6 +502,30 @@ section {
         font-size: 1.2rem;
     }
 }
+
+.service-card {
+    background-color: var(--white-bg);
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(217, 64, 139, 0.15);
+  }
+
+  .service-content p {
+    color: var(--text-dark);
+    font-size: 1rem;
+    line-height: 1.5;
+    text-align: justify;
+  }
+
+
+
+
 
 
 /* Eslogan */
@@ -588,21 +699,20 @@ section {
 }
 
 .value-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: var(--primary-pink);
-    margin-bottom: 0.8rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: var(--pink-brand); /* o color: #e83e8c; */
+    margin-bottom: 0.5rem;
     text-align: center;
-}
+  }
 
-.value-desc {
-    font-size: 0.95rem;
-    color: var(--text-dark);
-    line-height: 1.4;
-    text-align: justify;
-    flex-grow: 1;
-}
+  /* Si quieres también hacer uniforme los párrafos dentro de tarjetas */
+  .value-desc {
+    font-size: 1rem;
+    color: #555;
+    text-align: center;
+  }
 
 .history-logo-section .history-text {
     max-width: 900px;
